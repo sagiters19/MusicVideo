@@ -37,7 +37,7 @@ class APIManager {
                     
                     do {
                         
-                        if let json = try JSONSerialization.jsonObject(with: data!, options: .allowFragments) as? [String: AnyObject] {
+                        if let json = try JSONSerialization.jsonObject(with: data!, options: .allowFragments) as? JSONDictionary {
                             
                             print(json);
                             
