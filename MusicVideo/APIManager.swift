@@ -10,7 +10,7 @@ import Foundation
 
 class APIManager {
     
-    func loadData(urlString: String, completion:@escaping (_ result: String) -> Void) {
+    func loadData(urlString: String, completion:@escaping ([Videos]) -> Void) {
         
         let config = URLSessionConfiguration.ephemeral;
         
@@ -51,14 +51,18 @@ class APIManager {
                             print("iTunesApiManager - total count --> \(i)")
                             print(" ");
                             
-//                            DispatchQueue.global().async(group: <#T##DispatchGroup#>, execute: <#T##DispatchWorkItem#>)
+                            DispatchQueue.global(qos: .userInitiated).async{
+                                
+                                DispatchQueue.main.async {
+                                    completion(videos);
+                                }
+                                
+                            }
                             
                         }
                         
                     } catch {
-                        DispatchQueue.main.async {
-                            completion("error in  JSONSerialization");
-                        }
+                        print("error in NSJSONSerialization");
                     }
                     
                 }
