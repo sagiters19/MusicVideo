@@ -27,9 +27,9 @@ class APIManager {
                 
                 if error != nil {
                     
-                    DispatchQueue.main.async {
-                        completion((error?.localizedDescription)!);
-                    }
+                    print((error?.localizedDescription)!);
+//                    completion((error?.localizedDescription)!);
+                    
                     
                 } else {
                 
@@ -37,17 +37,21 @@ class APIManager {
                     
                     do {
                         
-                        if let json = try JSONSerialization.jsonObject(with: data!, options: .allowFragments) as? JSONDictionary {
+                        if let json = try JSONSerialization.jsonObject(with: data!, options: .allowFragments) as? JSONDictionary, let feed = json["feed"] as? JSONDictionary, let entries = feed["entry"] as? JSONArray {
                             
-                            print(json);
                             
-                            DispatchQueue.global(qos: .userInitiated).async{
-                            
-                                DispatchQueue.main.async {
-                                    completion("JSONSerialization Successful");
-                                }
-                            
+                                
+                            var videos = [Videos]();
+                            for entry in entries {
+                                let entry = Videos(data: entry as! JSONDictionary)
+                                videos.append(entry);
                             }
+                                
+                            let i = videos.count;
+                            print("iTunesApiManager - total count --> \(i)")
+                            print(" ");
+                            
+//                            DispatchQueue.global().async(group: <#T##DispatchGroup#>, execute: <#T##DispatchWorkItem#>)
                             
                         }
                         
