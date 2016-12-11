@@ -8,19 +8,51 @@
 
 import UIKit
 
+var reachability: Reachability?;
+var reachabilitySatus = WIFI;
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
+    var internetCheck: Reachability?;
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
+        NotificationCenter.default.addObserver(self, selector: Selector(("reachabilityChanged:")), name: NSNotification.Name.reachabilityChanged, object: nil);
         
-        
+        internetCheck = Reachability.forInternetConnection();
+        internetCheck?.startNotifier();
         
         
         return true
+    }
+    
+    func reachabilityChanged(notfication: NSNotification) {
+        
+        reachability = notfication.object as? Reachability;
+        statusChangedWithReachability(currentReachabilitySatus: reachability!);
+        
+    }
+    
+    func statusChangedWithReachability(currentReachabilitySatus: Reachability) {
+        
+        let networkStatus: NetworkStatus = currentReachabilitySatus.currentReachabilityStatus();
+        
+        switch networkStatus.rawValue {
+        case NotReachable.rawValue:
+            reachabilitySatus = NOACCESS;
+        case ReachableViaWiFi.rawValue:
+            reachabilitySatus = WIFI;
+        case ReachableViaWWAN.rawValue:
+            reachabilitySatus = WWAN;
+        default:
+            return;
+        }
+        
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "ReachStatusChanged"), object: nil);
+        
     }
 
     func applicationWillResignActive(_ application: UIApplication) {
@@ -43,6 +75,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+        
+        NotificationCenter.default.removeObserver(self, name: NSNotification.Name.reachabilityChanged, object: nil);
+        
     }
 
 

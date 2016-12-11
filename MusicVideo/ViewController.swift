@@ -23,6 +23,8 @@ class ViewController: UIViewController {
 
     func didLoadData(videos: [Videos]) {
         
+        print(reachabilitySatus);
+        
         self.videos = videos;
         
         for item in videos {
