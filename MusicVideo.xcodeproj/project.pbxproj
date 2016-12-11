@@ -257,8 +257,9 @@
 				TargetAttributes = {
 					040DF9E11DF99CEE000E1BEE = {
 						CreatedOnToolsVersion = 8.0;
+						DevelopmentTeam = TXMCUUX4PU;
 						LastSwiftMigration = 0800;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 					};
 					040DF9F51DF99CEF000E1BEE = {
 						CreatedOnToolsVersion = 8.0;
@@ -482,11 +483,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				DEVELOPMENT_TEAM = TXMCUUX4PU;
 				INFOPLIST_FILE = MusicVideo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.wordpress.jack.MusicVideo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "f56f4d9e-178b-4890-af25-3c8f485db054";
+				PROVISIONING_PROFILE_SPECIFIER = MusicVideo;
 				SWIFT_OBJC_BRIDGING_HEADER = "MusicVideo/MusicVideo-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
@@ -498,6 +502,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = MusicVideo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
