@@ -49,7 +49,7 @@ class MusicVideoTVC: UITableViewController {
         
         switch reachabilitySatus {
         case NOACCESS:
-            view.backgroundColor = UIColor.red;
+//            view.backgroundColor = UIColor.red;
             
             DispatchQueue.main.async {
     
@@ -76,7 +76,7 @@ class MusicVideoTVC: UITableViewController {
             }
             
         default:
-            view.backgroundColor = UIColor.green;
+//            view.backgroundColor = UIColor.green;
             if videos.count > 0 {
                 print("do not refresh API");
             } else {
@@ -92,7 +92,7 @@ class MusicVideoTVC: UITableViewController {
         
         // Call API
         let api = APIManager();
-        api.loadData(urlString: "https://itunes.apple.com/us/rss/topmusicvideos/limit=50/json", completion: didLoadData)
+        api.loadData(urlString: "https://itunes.apple.com/us/rss/topmusicvideos/limit=200/json", completion: didLoadData)
         
     }
     
@@ -112,20 +112,23 @@ class MusicVideoTVC: UITableViewController {
         return videos.count;
     }
 
+    private struct storyboard {
+        static let cellReuseIdentifier = "cell";
+    }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-
-        let video = videos[indexPath.row];
         
-        cell.textLabel?.text = ("\(indexPath.row + 1)");
-        
-        cell.detailTextLabel?.text = video.vName
+        let cell = tableView.dequeueReusableCell(withIdentifier: storyboard.cellReuseIdentifier, for: indexPath) as! MusicVideoTableViewCell;
 
+        cell.video = videos[indexPath.row];
+        
         return cell
     }
     
-
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 132.0;
+    }
+    
     /*
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
