@@ -155,7 +155,11 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YdE-qr-ZQv"/>
+                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YdE-qr-ZQv">
+                                                    <connections>
+                                                        <action selector="touchIdSec:" destination="RUy-q4-KBP" eventType="valueChanged" id="BJF-Z6-4cD"/>
+                                                    </connections>
+                                                </switch>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="YdE-qr-ZQv" firstAttribute="top" secondItem="2Dc-Rb-0yp" secondAttribute="topMargin" constant="18" id="BsB-jj-w2Z"/>

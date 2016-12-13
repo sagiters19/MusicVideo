@@ -12,6 +12,8 @@ class MusicVideoDetailVC: UIViewController {
 
     var videos: Videos!
     
+    
+    
     @IBOutlet var vName: UILabel!
     @IBOutlet var videoImage: UIImageView!
     @IBOutlet var vGenre: UILabel!
@@ -21,6 +23,8 @@ class MusicVideoDetailVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
         
         title = videos.vArtist;
         vName.text = videos.vName;
