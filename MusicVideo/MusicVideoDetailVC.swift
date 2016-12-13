@@ -17,7 +17,7 @@ class MusicVideoDetailVC: UIViewController {
     @IBOutlet var vGenre: UILabel!
     @IBOutlet var vPrice: UILabel!
     @IBOutlet var vRight: UILabel!
-    
+    //
     
     override func viewDidLoad() {
         super.viewDidLoad()
