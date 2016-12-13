@@ -21,6 +21,7 @@
 		040DFA1D1DF9C837000E1BEE /* MusicVideo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040DFA1C1DF9C837000E1BEE /* MusicVideo.swift */; };
 		040FB5641DFEE14000558478 /* MusicVideoTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040FB5631DFEE14000558478 /* MusicVideoTVC.swift */; };
 		040FB5661DFEEEBB00558478 /* MusicVideoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040FB5651DFEEEBB00558478 /* MusicVideoTableViewCell.swift */; };
+		0463CB521E006B2D00626D4C /* SettingTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0463CB511E006B2D00626D4C /* SettingTVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +64,7 @@
 		040DFA1C1DF9C837000E1BEE /* MusicVideo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MusicVideo.swift; sourceTree = "<group>"; };
 		040FB5631DFEE14000558478 /* MusicVideoTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MusicVideoTVC.swift; sourceTree = "<group>"; };
 		040FB5651DFEEEBB00558478 /* MusicVideoTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MusicVideoTableViewCell.swift; sourceTree = "<group>"; };
+		0463CB511E006B2D00626D4C /* SettingTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingTVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -167,6 +169,7 @@
 				040FB5631DFEE14000558478 /* MusicVideoTVC.swift */,
 				040FB5651DFEEEBB00558478 /* MusicVideoTableViewCell.swift */,
 				040CC0921E002F5700735D94 /* MusicVideoDetailVC.swift */,
+				0463CB511E006B2D00626D4C /* SettingTVC.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -340,6 +343,7 @@
 				040DFA1D1DF9C837000E1BEE /* MusicVideo.swift in Sources */,
 				040FB5661DFEEEBB00558478 /* MusicVideoTableViewCell.swift in Sources */,
 				040DF9E61DF99CEF000E1BEE /* AppDelegate.swift in Sources */,
+				0463CB521E006B2D00626D4C /* SettingTVC.swift in Sources */,
 				040240341DFDBF6D00873D70 /* Reachability.m in Sources */,
 				040DFA1B1DF9C68E000E1BEE /* Constants.swift in Sources */,
 				040FB5641DFEE14000558478 /* MusicVideoTVC.swift in Sources */,

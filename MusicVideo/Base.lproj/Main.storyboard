@@ -20,7 +20,7 @@
                                 <rect key="frame" x="0.0" y="92" width="375" height="132"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="nIg-7F-X6a" id="VXj-Vg-pnB">
-                                    <frame key="frameInset" width="375" height="131.5"/>
+                                    <frame key="frameInset" width="375" height="131"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="iRR-V6-Ejp">
@@ -83,10 +83,10 @@
             </objects>
             <point key="canvasLocation" x="53.600000000000001" y="256.82158920539734"/>
         </scene>
-        <!--Table View Controller-->
+        <!--SettingTVC-->
         <scene sceneID="5Dk-PD-J3V">
             <objects>
-                <tableViewController id="RUy-q4-KBP" sceneMemberID="viewController">
+                <tableViewController id="RUy-q4-KBP" customClass="SettingTVC" customModule="MusicVideo" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="dq2-l4-qwb">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -235,6 +235,15 @@
                             <outlet property="delegate" destination="RUy-q4-KBP" id="grg-B3-JIK"/>
                         </connections>
                     </tableView>
+                    <connections>
+                        <outlet property="APICnt" destination="lhA-Ks-iCm" id="ici-4f-ZoN"/>
+                        <outlet property="aboutDisplay" destination="J0G-x1-VP2" id="626-4c-C6M"/>
+                        <outlet property="bestImageDisplay" destination="HEx-RB-BDB" id="Y4r-5H-TW8"/>
+                        <outlet property="feedbackDisplay" destination="5NA-NF-Uk9" id="F8z-le-vYR"/>
+                        <outlet property="securityDisplay" destination="NjH-Fp-gNQ" id="IOb-y6-R4e"/>
+                        <outlet property="sliderCnt" destination="P4t-Gh-6bZ" id="gdP-nw-oj7"/>
+                        <outlet property="touchID" destination="YdE-qr-ZQv" id="0HE-gj-aje"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dRI-72-5YY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
