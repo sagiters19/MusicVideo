@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MusicVideoTVC: UITableViewController {
+class MusicVideoTVC: UITableViewController, UISearchResultsUpdating {
 
     var videos = [Videos]();
     
@@ -54,7 +54,7 @@ class MusicVideoTVC: UITableViewController {
         navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.red];
         title = ("The iTunes Top \(limit) Music Videos");
         
-//        resultSearchController.searchResultsUpdater = self;
+        resultSearchController.searchResultsUpdater = self;
         definesPresentationContext = true;
         resultSearchController.dimsBackgroundDuringPresentation = false;
         resultSearchController.searchBar.placeholder = "Search for Artist";
@@ -117,7 +117,12 @@ class MusicVideoTVC: UITableViewController {
     @IBAction func refresh(_ sender: UIRefreshControl) {
         
         refreshControl?.endRefreshing();
-        runAPI();
+        
+        if resultSearchController.isActive {
+            refreshControl?.attributedTitle = NSAttributedString(string: "No refresh allowed in search");
+        } else {
+            runAPI();
+        }
         
     }
     
@@ -248,4 +253,18 @@ class MusicVideoTVC: UITableViewController {
         }
     }
 
+    func updateSearchResults(for searchController: UISearchController) {
+        searchController.searchBar.text!.lowercased()
+        filterSearch(searchText: searchController.searchBar.text!);
+    }
+    
+    func filterSearch(searchText: String) {
+        filterSearch = videos.filter({ videos in
+            return videos.vArtist.lowercased().contains(searchText.lowercased());
+        })
+        
+        tableView.reloadData();
+        
+    }
+    
 }
