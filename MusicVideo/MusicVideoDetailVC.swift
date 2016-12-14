@@ -9,12 +9,13 @@
 import UIKit
 import AVKit
 import AVFoundation
+import LocalAuthentication
 
 class MusicVideoDetailVC: UIViewController {
 
     var videos: Videos!
     
-    
+    var securitySwitch: Bool = false;
     
     @IBOutlet var vName: UILabel!
     @IBOutlet var videoImage: UIImageView!
@@ -60,7 +61,86 @@ class MusicVideoDetailVC: UIViewController {
     
     @IBAction func socialMedia(_ sender: UIBarButtonItem) {
         
-        shareMedia();
+        securitySwitch = UserDefaults.standard.bool(forKey: "SecSetting");
+        
+        switch securitySwitch {
+        case true:
+            touchIDChk();
+        default:
+            shareMedia();
+        }
+        
+    }
+    
+    func touchIDChk() {
+        
+        let alert = UIAlertController(title: "", message: "", preferredStyle: .alert);
+        alert.addAction(UIAlertAction(title: "continue", style: .cancel, handler: nil));
+        
+        let context = LAContext();
+        var touchIDError: NSError?;
+        let reasonString = "Touch-Id authentication is needed to share info on Social Media";
+        
+        if context.canEvaluatePolicy(LAPolicy.deviceOwnerAuthenticationWithBiometrics, error: &touchIDError) {
+            
+            context.evaluatePolicy(LAPolicy.deviceOwnerAuthenticationWithBiometrics, localizedReason: reasonString, reply: { (success, policyError) in
+                
+                if success {
+                    DispatchQueue.main.async {
+                        self.shareMedia();
+                    }
+                } else {
+                    
+                    alert.title = "Unsuccessful!";
+                    
+                    switch policyError! {
+                    case LAError.appCancel:
+                        alert.message = "Authentication was cancelled by application";
+                    case LAError.authenticationFailed:
+                        alert.message = "The user failed to provide valid credentials";
+                    case LAError.passcodeNotSet:
+                        alert.message = "Passcode is not set on the device";
+                    case LAError.systemCancel:
+                        alert.message = "Authentication was cancelled by the system";
+                    case LAError.touchIDLockout:
+                        alert.message = "Too many failed attempts";
+                    case LAError.userCancel:
+                        alert.message = "You cancelled the request";
+                    case LAError.userFallback:
+                        alert.message = "Password not accepted, must use Touch-ID";
+                    default:
+                        alert.message = "Unable to Authentication!";
+                    }
+                    
+                    DispatchQueue.main.async {
+                        self.present(alert, animated: true, completion: nil);
+                    }
+                }
+                
+            })
+            
+        } else {
+            
+            alert.title = "Error";
+            
+            switch touchIDError! {
+            case LAError.touchIDNotEnrolled:
+                alert.message = "Touch ID is not enrolled";
+            case LAError.touchIDNotAvailable:
+                alert.message = "Touch ID is not available on the device";
+            case LAError.passcodeNotSet:
+                alert.message = "Passcode has not been set";
+            case LAError.invalidContext:
+                alert.message = "The context is invalid";
+            default:
+                alert.message = "Local Authentication not available";
+            }
+            
+            DispatchQueue.main.async {
+                self.present(alert, animated: true, completion: nil);
+            }
+            
+        }
         
     }
     
