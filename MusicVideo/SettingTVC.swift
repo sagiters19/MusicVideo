@@ -31,6 +31,12 @@ class SettingTVC: UITableViewController {
         
         touchID.isOn = UserDefaults.standard.bool(forKey: "SecSetting");
         
+        if (UserDefaults.standard.object(forKey: "APICNT") != nil) {
+            let theValue = UserDefaults.standard.object(forKey: "APICNT") as! Int;
+            APICnt.text = "\(theValue)";
+            sliderCnt.value = Float(theValue);
+        }
+        
     }
     
     @IBAction func touchIdSec(_ sender: UISwitch) {
@@ -44,6 +50,13 @@ class SettingTVC: UITableViewController {
         
     }
     
+    @IBAction func valueChanged(_ sender: AnyObject) {
+        
+        let defaults = UserDefaults.standard;
+        defaults.set(Int(sliderCnt.value), forKey: "APICNT");
+        APICnt.text = ("\(Int(sliderCnt.value))");
+        
+    }
     
     func preferredFontChange() {
         
