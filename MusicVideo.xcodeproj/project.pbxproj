@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		040240341DFDBF6D00873D70 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 040240331DFDBF6D00873D70 /* Reachability.m */; };
+		0403DA1E1E01C4BE002E964D /* MyExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0403DA1D1E01C4BE002E964D /* MyExtension.swift */; };
 		040CC0931E002F5700735D94 /* MusicVideoDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040CC0921E002F5700735D94 /* MusicVideoDetailVC.swift */; };
 		040DF9E61DF99CEF000E1BEE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040DF9E51DF99CEF000E1BEE /* AppDelegate.swift */; };
 		040DF9E81DF99CEF000E1BEE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040DF9E71DF99CEF000E1BEE /* ViewController.swift */; };
@@ -45,6 +46,7 @@
 		040240311DFDBF6C00873D70 /* MusicVideo-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MusicVideo-Bridging-Header.h"; sourceTree = "<group>"; };
 		040240321DFDBF6D00873D70 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
 		040240331DFDBF6D00873D70 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
+		0403DA1D1E01C4BE002E964D /* MyExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyExtension.swift; sourceTree = "<group>"; };
 		040CC0921E002F5700735D94 /* MusicVideoDetailVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MusicVideoDetailVC.swift; sourceTree = "<group>"; };
 		040DF9E21DF99CEF000E1BEE /* MusicVideo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MusicVideo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		040DF9E51DF99CEF000E1BEE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -170,6 +172,7 @@
 				040FB5651DFEEEBB00558478 /* MusicVideoTableViewCell.swift */,
 				040CC0921E002F5700735D94 /* MusicVideoDetailVC.swift */,
 				0463CB511E006B2D00626D4C /* SettingTVC.swift */,
+				0403DA1D1E01C4BE002E964D /* MyExtension.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -347,6 +350,7 @@
 				040240341DFDBF6D00873D70 /* Reachability.m in Sources */,
 				040DFA1B1DF9C68E000E1BEE /* Constants.swift in Sources */,
 				040FB5641DFEE14000558478 /* MusicVideoTVC.swift in Sources */,
+				0403DA1E1E01C4BE002E964D /* MyExtension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
